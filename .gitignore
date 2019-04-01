@@ -1,3 +1,8 @@
+    
+# Created by https://www.gitignore.io/api/gradle
+# Edit at https://www.gitignore.io/?templates=gradle
+
+### Gradle ###
 .gradle
 /build/
 
@@ -12,3 +17,39 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
+
+### Gradle Patch ###
+**/build/
+
+# End of https://www.gitignore.io/api/gradle
+
+
+## below added by JP to get rid of useless DS Store and such
+
+.DS_Store
+applet
+application.linux-arm64
+application.linux-armv6hf
+application.linux32
+application.linux64
+application.windows32
+application.windows64
+application.macosx
+/bin/
+*.xml
+*.xml
+COSC-310-Assignment-2.iml
+*.xml
+.idea/libraries/com_mashape_unirest_unirest_java_1_4_9.xml
+.idea/libraries/com_google_code_gson_gson_2_8_5.xml
+.idea/gradle.xml
+.idea/compiler.xml
+gradlew
+gradlew.bat
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.jar
+build.gradle
+.idea/vcs.xml
+.idea/compiler.xml
+.idea/vcs.xml
+build.gradle
