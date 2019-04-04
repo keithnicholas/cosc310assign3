@@ -1,0 +1,162 @@
+{
+  "lists": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hello",
+        "hi",
+        "greetings",
+        "sup",
+        "what's up"
+      ],
+      "responses": [
+        "whatsup",
+        "hey",
+        "yo",
+        "what's up",
+        "hi"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "See you later",
+        "Goodbye"
+      ],
+      "responses": [
+        "See you later, thanks for visiting",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks",
+        "Thank you"
+      ],
+      "responses": [
+        "Happy to help!",
+        "Any time!",
+        "My pleasure"
+      ]
+    },
+    {
+      "tag": "weather",
+      "patterns": [
+        "how is weather in kelowna?",
+        "what is weather in kelowna?",
+        "Weather in kelowna?"
+      ],
+      "responses": [
+        "Weather is sunny in Kelowna"
+      ]
+    },
+    {
+      "tag": "tired",
+      "patterns": [
+        "i am tired",
+        "i am bored"
+      ],
+      "responses": [
+        "keep"
+      ]
+    },
+    {
+      "tag": "food",
+      "patterns": [
+        "what food do you like?",
+        "what food do you know?",
+        "what is food for dinner?"
+      ],
+      "responses": [
+        "I like pasta and spaghetti",
+        "I am craving for naan bread"
+      ]
+    },
+    {
+      "tag": "robot",
+      "patterns": [
+        "what are you?",
+        "who are you"
+      ],
+      "responses": [
+        "I'm a robot. We're mostly right all the time",
+        "I'm a bot"
+      ]
+    },
+    {
+      "tag": "building",
+      "patterns": [
+        "Do you know they are building a new cafe?"
+      ],
+      "responses": [
+        "It's already made in Commons"
+      ]
+    },
+    {
+      "tag": "opentoday",
+      "patterns": [
+        "Are you open today?",
+        "When do you open today?",
+        "What are your hours today?"
+      ],
+      "responses": [
+        "We're open every day from 9am-9pm",
+        "Our hours are 9am-9pm every day"
+      ]
+    },
+    {
+      "tag": "rental",
+      "patterns": [
+        "Can we rent a moped?",
+        "I'd like to rent a moped",
+        "How does this work?"
+      ],
+      "responses": [
+        "Are you looking to rent today or later this week?"
+      ],
+      "context_set": "rentalday"
+    },
+    {
+      "tag": "today",
+      "patterns": [
+        "today"
+      ],
+      "responses": [
+        "For rentals today please call 1-800-MYMOPED",
+        "Same-day rentals please call 1-800-MYMOPED"
+      ],
+      "context_filter": "rentalday"
+    },
+    {
+      "tag": "song",
+      "patterns": [
+        "what do you know about song?",
+        "Any idea for song?",
+        "I like song",
+        "do you know some good song?"
+      ],
+      "responses": [
+        "I only know a bit about song",
+        "1980s is the best era of music",
+        "I dont like rap song"
+      ]
+    },
+    {
+      "tag": "sports",
+      "patterns": [
+        "what do you know about sports?",
+        "do you like sports?",
+        "i like sports"
+      ],
+      "responses": [
+        "I only know a bit about sports",
+        "basketball is ",
+        "and I like it too"
+      ]
+    }
+  ]
+}
