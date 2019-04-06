@@ -63,7 +63,7 @@ public class Bot {
             spell.setNewSentence(input);
         } catch (Exception e) {
         }
-        //input = spell.getCorrectedSentence();
+        input = spell.getCorrectedSentence();
         //remove any non-alphabet/space characters
         input = input.replaceAll("[^A-Za-z0-9 ]","");
         //split input into separate words
