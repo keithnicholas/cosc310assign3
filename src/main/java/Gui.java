@@ -70,6 +70,7 @@ public class Gui {
         frame.setSize(768, 1024);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+
         frame.setVisible(true);
         sandra = new Bot("Sandra");
 
@@ -79,18 +80,21 @@ public class Gui {
         // (ie. what//how => can mean either what or how can be used. Be sure not to use the same word!)
 
         String[][] keywordsandAswers = {
-                {"how//what", "is", "weather", sandra.getWeather("Kelowna")},
-                {"how", "is", "weather", "in", "[city/place]"}, //key=1, special
+                {"how", "is", "weather", sandra.getWeather("Kelowna")},
+                {"how", "is", "weather", "in", "it is sunny"}, //key=1, special
                 {"how", "is", "food", "I'm a robot, I don't eat food!"},
                 {"where", "do", "you", "live", "On your hard drive"},
                 {"what", "is", "your", "name", sandra.getName() + ", what's yours?"},
                 {"who", "is", "president", "USA", "Donald Trump"},
                 {"who", "is", "president", "canada", "Trudeau"},
+                {"how", "are", "you", "today", "I am feeling well"},
+                {"hi", "sandra", "Yo"},
+                {"hello", "sandra", "hello human"},
                 {"what", "is", "favourite", "movie", "Forrest Gump"},
                 {"I", "am", "tired", "Remember quitters never win, and winners never quit"},
                 {"That", "is", "true", "I know, I'm a robot. We're mostly right all the time"},
                 {"Can", "you", "keep", "secret", "go ahead"},
-                {"Hello//hi//sup", "We've said hi already..."},
+                {"Hello", "Whatsup my fellow human friends"},
                 {"I", "was", "reading", "news", "oh yeah?"},
                 {"They", "are", "building", "new", "cafe", "on", "campus", "oh I heard about that! Do you want to go have coffee sometime?"},
                 {"You", "can't", "have", "coffee", "you're", "a", "robot", "oh yeah... That's true..."},
@@ -99,6 +103,9 @@ public class Gui {
                 {"What's", "for", "dinner", "do you only ever talk about food?"},
                 {"Sorry", "it's okay. Anyways, how was your day?"},
                 {"It", "was", "good", "that's nice, what did you do?"},
+                {"what", "do", "you", "drive", "I drive a binary number"},
+                {"how", "do", "you", "breath", "I breath through CPU cycles"},
+                {"who", "is", "the worst criminal", "Certainly, not me"},
                 {"Went", "to", "the", "mall", "Nice. Did you get anything?"},
                 {"I", "got", "shoes", "Nice! If I had a computer vision algorithm, I could see them",},
                 {"Do", "you", "want", "to", "play", "a", "game?", "sure, what's the game?"},
@@ -128,11 +135,18 @@ public class Gui {
                 {"what", "do", "you", "know", "about", "car", "I like fast car"},
                 {"do", "you", "know", "car", "top speed", "ford mustang top speed is about 280 km/h"},
                 {"what", "is", "mustang", "engine", "displacement", "mustang uses V8 vroom vromo"},
+                {"what", "are", "good", "race", "rally is good"},
+                {"what", "is", "best", "football", "league", "Barclay is good"},
+                {"do", "you", "operate", "car", "I cannot operate car"},
                 {"what", "is", "football", "a sport that is done with a foot"},
                 {"do", "you", "play", "football", "I cant play football, I dont have legs"},
                 {"what", "soccer", "team", "do", "you", "know", "viva la madrid"},
                 {"what", "basketball", "team", "you", "like", "Lakers is pretty good"},
-                {"can", "you", "play", "basketball", "sport", "I cannot play sport, I am an AI"}
+                {"can", "you", "play", "basketball", "sport", "I cannot play sport, I am an AI"},
+                {"do", "you", "feel", "starving", "I cannot feel hunger"},
+                {"do", "you", "live", "life", "its very philoshopical"},
+                {"do", "you", "know", "artist", "I know Sharukh Khan and Katy Perry"},
+                {"what", "is", "a", "love", "some human emotion"}
         };
         // in this 2D array, we are storing the keywords and the answer they match to.
         // Each row contains one answer, and all the corresponding keywords
