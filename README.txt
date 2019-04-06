@@ -39,7 +39,7 @@ o for each explanation, give a snippet of a conversation that demonstrates
 your feature
 
 List of feature programmed:
-Note: Spellcheck for error checking was completed with group not individual
+Note: Spellcheck for error checking was completed with group not individual so the list below are the ones that I implemented by myself for this assignments
 A. added several new topics
 B. GUI for seeing recent conversation
 C. Synonyms
