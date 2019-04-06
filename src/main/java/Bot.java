@@ -51,6 +51,7 @@ public class Bot {
      */
     public String getResponse(String input) {
         //for getting location of previous match
+        int bestMatch = -1;
         if (input.toLowerCase().equals("/get match")) {
             if (bestMatch != -1)
                 System.out.println("this bestmac: " + bestMatch);
@@ -62,7 +63,7 @@ public class Bot {
             spell.setNewSentence(input);
         } catch (Exception e) {
         }
-        input = spell.getCorrectedSentence();
+        //input = spell.getCorrectedSentence();
         //remove any non-alphabet/space characters
         input = input.replaceAll("[^A-Za-z0-9 ]","");
         //split input into separate words
@@ -104,7 +105,7 @@ public class Bot {
                             System.out.println("best match and y: " + pos + " " + bestMatch +" "+y);
 
                         }
-                        if (pos > 2 && oldCount < pos) {
+                        if (pos >= 2 && oldCount < pos) {
                             okMatch = x;
                         }
                     }
@@ -130,7 +131,7 @@ public class Bot {
             } else {
                 which = okMatch;
             }
-            toReturn = keyAns[okMatch][keyAns[okMatch].length - 1];
+            toReturn = keyAns[which][keyAns[which].length - 1];
         } else {
 
             toReturn = "Sorry, I could not understand what you are saying.";
