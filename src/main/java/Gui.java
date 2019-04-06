@@ -2,12 +2,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.ExecutionException;
 
 public class Gui {
     private static Bot sandra;
@@ -115,7 +112,7 @@ public class Gui {
                 {"Ah", "see", "you're", "not", "that", "smart", "Sorry, I could not... Hehehe just kiddig I got that."},
                 {"How", "are", "you", "good thanks"},
                 {"do", "you", "know", "politic", "I don't know politics"},
-                {"what//why", "is//are", "politics//politic", "good//bad", "I'm uniformed about politic"},
+                {"why//what", "are//is", "politic//politics", "good//bad", "I'm uniformed about politic"},
                 {
                         "do//does", "you", "like", "sport", "I like sport"
                 },
@@ -128,9 +125,14 @@ public class Gui {
                 {"what", "do", "you", "think", "about", "math", "Math is hard"},
                 {"can", "you", "write", "code", "I cannot write code"},
                 {"can", "you", "play", "guitar", "I cannot play instrument"},
-                {"what", "do", "you", "know", "about", "car", "I like fast car like nissan GTR, ford GT and etc"},
+                {"what", "do", "you", "know", "about", "car", "I like fast car"},
                 {"do", "you", "know", "car", "top speed", "ford mustang top speed is about 280 km/h"},
                 {"what", "is", "mustang", "engine", "displacement", "mustang uses V8 vroom vromo"},
+                {"what", "is", "football", "a sport that is done with a foot"},
+                {"do", "you", "play", "football", "I cant play football, I dont have legs"},
+                {"what", "soccer", "team", "do", "you", "know", "viva la madrid"},
+                {"what", "basketball", "team", "you", "like", "Lakers is pretty good"},
+                {"can", "you", "play", "basketball", "sport", "I cannot play sport, I am an AI"}
         };
         // in this 2D array, we are storing the keywords and the answer they match to.
         // Each row contains one answer, and all the corresponding keywords
