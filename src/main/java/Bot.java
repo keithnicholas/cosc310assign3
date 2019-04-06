@@ -1,9 +1,14 @@
+import edu.smu.tspell.wordnet.Synset;
+import edu.smu.tspell.wordnet.WordNetDatabase;
 import org.apache.commons.lang.StringUtils;
 
 import javax.swing.*;
-import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
+@SuppressWarnings("Duplicates")
 /**
  * Created by Agent on 2019-02-12.
  */
@@ -25,7 +30,7 @@ public class Bot {
             spell = new SpellCheck("");
         } catch (Exception e) {
         }
-
+        System.setProperty("wordnet.database.dir", "C:\\Program Files (x86)\\WordNet\\2.1\\dict");
     }
 
     public void createResponseList(String[][] list) {
@@ -57,7 +62,7 @@ public class Bot {
             spell.setNewSentence(input);
         } catch (Exception e) {
         }
-        //input = spell.getCorrectedSentence();
+        input = spell.getCorrectedSentence();
         //remove any non-alphabet/space characters
         input = input.replaceAll("[^A-Za-z0-9 ]","");
         //split input into separate words
@@ -81,7 +86,14 @@ public class Bot {
                 for (int i = 0; i < keys.length; i++) {
                     //if there is a match, the position increments, and once all
                     //words from keywords are matched it is the best match
-                    if (in[y].toLowerCase().equals((keys[i]).toLowerCase()) || StringUtils.containsIgnoreCase(in[y], keys[i])) {
+
+                    /*
+                    Get synonyms for each input and vocab words, if both synonyms contain something in commmon, then we consider it as the same
+                     */
+                    ArrayList<String> synonymCorpus = getSynonym(keys[i]);
+                    ArrayList<String> synonymText = getSynonym(in[y]);
+                    Boolean SynonymMatch = containsSimilarWord(synonymCorpus, synonymText);
+                    if (in[y].toLowerCase().equals((keys[i]).toLowerCase()) || SynonymMatch == true || StringUtils.containsIgnoreCase(in[y], keys[i])) {
                         pos++;
                         System.out.println(pos);
                         //if all keywords are matched
@@ -107,6 +119,7 @@ public class Bot {
         if (sp.length() > 0) {
 
             toReturn = sp;
+            return toReturn;
         } else if (bestMatch != -1 || okMatch != -1) {
 
             //System.out.println(keyAns[bestMatch][keyAns[bestMatch].length - 1]);
@@ -159,5 +172,58 @@ public class Bot {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * Return synonym for each word
+     *
+     * @param word
+     * @return
+     */
+    public ArrayList<String> getSynonym(String word) {
+        String path = "C:\\Program Files (x86)\\WordNet\\2.1\\dict";
+        System.setProperty("wordnet.database.dir", path);
+
+        WordNetDatabase database = WordNetDatabase.getFileInstance();
+        Synset[] synsets = database.getSynsets(word);
+        //  Display the word forms and definitions for synsets retrieved
+        Set<String> uniqueSynonym = new HashSet<>();
+        if (synsets != null && synsets.length > 0) {
+            ArrayList<String> al = new ArrayList<String>();
+            // add elements to al, including duplicates
+            HashSet hs = new HashSet();
+            for (int i = 0; i < synsets.length; i++) {
+                String[] wordForms = synsets[i].getWordForms();
+                for (int j = 0; j < wordForms.length; j++) {
+                    al.add(wordForms[j]);
+                }
+
+
+                //removing duplicates
+                hs.addAll(al);
+                al.clear();
+                al.addAll(hs);
+                uniqueSynonym = new HashSet<String>();
+                //removing duplicate using set
+                for (int f = 0; f < al.size(); f++) {
+                    uniqueSynonym.add(al.get(f));
+                }
+
+            }
+        } else {
+            uniqueSynonym.add("73c84bd6516a15cf46ced59ffd7498d2"); //not used
+        }
+
+        return new ArrayList<String>(uniqueSynonym);
+
+    }
+
+    private boolean containsSimilarWord(ArrayList<String> oneArray, ArrayList<String> second) {
+        for (int i = 0; i < oneArray.size(); i++) {
+            if (second.contains(i)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
